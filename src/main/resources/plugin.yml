@@ -1,0 +1,41 @@
+name: SimpleHarvest
+description: Allows easy harvesting of various crops via right click
+author: Devon Palma
+
+
+
+main: io.github.DevonPalma.simpleHarvest.SimpleHarvest
+version: 1.0-SNAPSHOT
+api-version: 1.15
+
+depend: [Vault]
+
+permissions:
+  simpleharvest.*:
+    description: Grants access to all crops
+    children:
+      simpleharvest.carrot: true
+      simpleharvest.potato: true
+      simpleharvest.beetroot: true
+      simpleharvest.wheat: true
+      simpleharvest.netherwart: true
+      simpleharvest.cocoa: true
+
+  simpleharvest.beetroot:
+    description: Allows users to harvest beetroots via simpleharvest
+    default: true
+  simpleharvest.carrot:
+    description: Allows users to harvest carrots via simpleharvest
+    default: true
+  simpleharvest.potato:
+    description: Allows users to harvest potatoes via simpleharvest
+    default: true
+  simpleharvest.wheat:
+    description: Allows users to harvest wheat via simpleharvest
+    default: true
+  simpleharvest.netherwart:
+    description: Allows users to harvest netherwart via simpleharvest
+    default: true
+  simpleharvest.cocoa:
+    description: Allows users to harvest cocoa beans via simpleharvest
+    default: true
