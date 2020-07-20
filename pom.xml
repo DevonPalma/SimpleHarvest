@@ -4,15 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>SimpleHarvest</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <name>SimpleHarvest</name>
+    <groupId>io.github.DevonPalma</groupId>
+    <artifactId>simpleHarvest</artifactId>
+    <version>v1.0</version>
+
 
     <properties>
+        <apiVersion>1.16</apiVersion>
+
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
 
     <repositories>
         <repository>
@@ -29,7 +34,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.15.2-R0.1-SNAPSHOT</version>
+            <version>1.16.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -39,5 +44,15 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>${name}-${apiVersion}-${version}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
 </project>
