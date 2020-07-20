@@ -1,12 +1,12 @@
-name: SimpleHarvest
+name: ${name}
 description: Allows easy harvesting of various crops via right click
 author: Devon Palma
 
 
 
-main: io.github.DevonPalma.simpleHarvest.SimpleHarvest
-version: 1.0-SNAPSHOT
-api-version: 1.15
+main: ${groupId}.${artifactId}.${name}
+version: ${version}
+api-version: ${apiVersion}
 
 depend: [Vault]
 
