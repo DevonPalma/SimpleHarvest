@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.github.DevonPalma</groupId>
+        <artifactId>simpleHarvest-parent</artifactId>
+        <version>parent</version>
+    </parent>
+
+    <artifactId>simpleHarvest-v1_15_2</artifactId>
+    <version>v1_15_2</version>
+    <name>SimpleHarvest v1_15_2</name>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.15.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.DevonPalma</groupId>
+            <artifactId>simpleHarvest-API</artifactId>
+            <version>API</version>
+        </dependency>
+    </dependencies>
+</project>
