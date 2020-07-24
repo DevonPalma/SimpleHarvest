@@ -4,61 +4,35 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>SimpleHarvest</name>
-    <groupId>io.github.DevonPalma</groupId>
-    <artifactId>simpleHarvest</artifactId>
-    <version>v1.1</version>
 
+
+    <groupId>io.github.DevonPalma</groupId>
+    <artifactId>simpleHarvest-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>parent</version>
+    <name>SimpleHarvest Parent</name>
 
     <properties>
-        <apiVersion>1.16</apiVersion>
-
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <modules>
+        <module>Plugin</module>
+        <module>API</module>
+        <module>v1_12_2</module>
+        <module>v1_13_2</module>
+        <module>v1_14_4</module>
+        <module>v1_15_2</module>
+        <module>v1_16_1</module>
+    </modules>
 
     <repositories>
         <repository>
             <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://ci.ender.zone/plugin/repository/everything/net/milkbowl/vault/</url>
-        </repository>
     </repositories>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.16.1-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.MilkBowl</groupId>
-            <artifactId>VaultAPI</artifactId>
-            <version>1.7</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <finalName>${name}-${apiVersion}-${version}</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-    </build>
 
 </project>
