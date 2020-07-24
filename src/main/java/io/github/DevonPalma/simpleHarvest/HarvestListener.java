@@ -1,36 +1,56 @@
 package io.github.DevonPalma.simpleHarvest;
 
-import io.github.DevonPalma.simpleHarvest.harvesters.*;
-import org.bukkit.block.Block;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HarvestListener implements Listener {
 
-    private final List<SimpleHarvester> harvesters;
+    List<CropHarvester> cropDataList = new ArrayList<>();
 
     public HarvestListener() {
-        this.harvesters = new ArrayList<>();
-        this.harvesters.add(new WheatHarvester());
-        this.harvesters.add(new BeetRootHarvester());
-        this.harvesters.add(new CarrotHarvester());
-        this.harvesters.add(new PotatoHarvester());
-        this.harvesters.add(new NetherwartHarvester());
-        this.harvesters.add(new CocoaHarvester());
-    }
+        cropDataList.add(CropHarvester.builder()
+                .blockType(Material.WHEAT)
+                .seedType(Material.WHEAT_SEEDS)
+                .permission("simpleharvest.wheat")
+                .build());
 
-    public int getFortuneLevel(ItemStack item) {
-        if (item == null)
-            return 0;
-        return item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
+        cropDataList.add(CropHarvester.builder()
+                .blockType(Material.CARROTS)
+                .seedType(Material.CARROT)
+                .permission("simpleharvest.carrot")
+                .build());
+
+        cropDataList.add(CropHarvester.builder()
+                .blockType(Material.POTATOES)
+                .seedType(Material.POTATO)
+                .permission("simpleharvest.potato")
+                .build());
+
+        cropDataList.add(CropHarvester.builder()
+                .blockType(Material.BEETROOTS)
+                .seedType(Material.BEETROOT_SEEDS)
+                .permission("simpleharvest.beetroot")
+                .build());
+
+        cropDataList.add(CropHarvester.builder()
+                .blockType(Material.COCOA)
+                .seedType(Material.COCOA_BEANS)
+                .permission("simpleharvest.cocoa")
+                .build());
+
+        cropDataList.add(CropHarvester.builder()
+                .blockType(Material.NETHER_WART)
+                .seedType(Material.NETHER_WART)
+                .permission("simpleharvest.netherwart")
+                .breakSound(Sound.BLOCK_NETHER_WART_BREAK)
+                .build());
     }
 
 
@@ -39,13 +59,8 @@ public class HarvestListener implements Listener {
         if (e.getAction() != Action.RIGHT_CLICK_BLOCK)
             return;
 
-        Player player = e.getPlayer();
-        Block block = e.getClickedBlock();
-        int fortuneLevel = getFortuneLevel(e.getItem());
-
-        for (SimpleHarvester harvester : harvesters) {
-            boolean success = harvester.attemptHarvest(player, block, fortuneLevel);
-            if (success) {
+        for (CropHarvester cropData : cropDataList) {
+            if (cropData.tryHarvest(e)) {
                 e.setCancelled(true);
                 break;
             }

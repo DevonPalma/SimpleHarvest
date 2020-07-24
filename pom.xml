@@ -7,7 +7,7 @@
     <name>SimpleHarvest</name>
     <groupId>io.github.DevonPalma</groupId>
     <artifactId>simpleHarvest</artifactId>
-    <version>v1.0</version>
+    <version>v1.1</version>
 
 
     <properties>
@@ -41,6 +41,12 @@
             <groupId>com.github.MilkBowl</groupId>
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
