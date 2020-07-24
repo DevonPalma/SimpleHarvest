@@ -20,7 +20,7 @@ public class CropHarvester {
 
     @Getter @Setter @NonNull
     private Material blockType, seedType;
-    @Getter @Setter
+    @Getter @Setter @Builder.Default
     private Sound breakSound = Sound.BLOCK_CROP_BREAK;
     @Getter @Setter
     private String permission;
@@ -86,10 +86,8 @@ public class CropHarvester {
 
 
 
-    public void playBlockBreakSound(Block block) {
-        World world = block.getWorld();
-        Location loc = block.getLocation();
-        world.playSound(loc, breakSound, SoundCategory.BLOCKS, 1, 0.9F);
+    public void playBlockBreakSound(Player player, Block block) {
+        block.getWorld().playSound(block.getLocation(), breakSound, SoundCategory.BLOCKS, 1, 0.9F);
     }
 
 
@@ -122,7 +120,7 @@ public class CropHarvester {
         else
             CropUtils.setBlockAge(block, 0);
 
-        playBlockBreakSound(block);
+        playBlockBreakSound(player, block);
 
         for (ItemStack drop : drops)
             block.getWorld().dropItem(block.getLocation(), drop);

@@ -46,7 +46,7 @@ public class HarvestListener implements Listener {
                 .build());
 
         cropDataList.add(CropHarvester.builder()
-                .blockType(Material.NETHER_WART_BLOCK)
+                .blockType(Material.NETHER_WART)
                 .seedType(Material.NETHER_WART)
                 .permission("simpleharvest.netherwart")
                 .breakSound(Sound.BLOCK_NETHER_WART_BREAK)
