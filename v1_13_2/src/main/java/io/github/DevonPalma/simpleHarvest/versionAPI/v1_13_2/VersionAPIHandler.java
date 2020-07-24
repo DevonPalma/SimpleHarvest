@@ -15,6 +15,11 @@ import java.util.List;
 
 public class VersionAPIHandler implements VersionAPI {
 
+    public VersionAPIHandler() {
+        // Block.getDrops does not provide seeds
+        throw new Error("There is currently an issue with 1.13.2, currently fixing it");
+    }
+
     @Override
     public boolean isHarvestable(Block block) {
         switch (block.getType()) {

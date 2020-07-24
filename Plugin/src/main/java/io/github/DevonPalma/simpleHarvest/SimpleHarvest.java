@@ -43,7 +43,7 @@ public class SimpleHarvest extends JavaPlugin {
         String version = getFormattedVersion();
 
         try {
-            Class<?> clazz = Class.forName("io.github.DevonPalma.simpleHarvest.versionAPI." + version + ".NMSHandler");
+            Class<?> clazz = Class.forName("io.github.DevonPalma.simpleHarvest.versionAPI." + version + ".VersionAPIHandler");
             if (VersionAPI.class.isAssignableFrom(clazz))
                 versionAPI = (VersionAPI) clazz.getConstructor().newInstance();
         } catch (Exception e) {
