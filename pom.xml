@@ -6,10 +6,10 @@
 
 
 
-    <groupId>io.github.DevonPalma</groupId>
-    <artifactId>simpleHarvest-parent</artifactId>
+    <groupId>org.devonmc.simpleHarvest</groupId>
+    <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>parent</version>
+    <version>1.0.0</version>
     <name>SimpleHarvest Parent</name>
 
     <properties>
@@ -21,11 +21,6 @@
     <modules>
         <module>Plugin</module>
         <module>API</module>
-        <module>v1_12_2</module>
-        <module>v1_13_2</module>
-        <module>v1_14_4</module>
-        <module>v1_15_2</module>
-        <module>v1_16_1</module>
     </modules>
 
     <repositories>

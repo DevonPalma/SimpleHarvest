@@ -4,7 +4,7 @@ author: Devon Palma
 
 
 
-main: ${groupId}.${artifactId}.${project.name}
+main: ${groupId}.${project.name}
 version: ${project.version}
 api-version: ${apiVersion}
 
